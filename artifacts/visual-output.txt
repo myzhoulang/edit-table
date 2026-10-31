@@ -1,0 +1,10 @@
+$ playwright test -c playwright.visual.config.ts
+
+Running 2 tests using 1 worker
+
+(node:32869) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/visual.spec.ts:5:3 › 设计结构视觉基线 light (1.1s)
+  ✓  2 e2e/visual.spec.ts:5:3 › 设计结构视觉基线 dark (751ms)
+
+  2 passed (3.5s)

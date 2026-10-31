@@ -1,0 +1,133 @@
+$ bun scripts/performance/model.ts
+{
+  "date": "2026-10-31T01:40:31.379Z",
+  "environment": {
+    "runtime": "Bun 1.3.13",
+    "nodeCompatibility": "v24.3.0",
+    "platform": "darwin",
+    "release": "25.6.0",
+    "cpu": "Apple M1"
+  },
+  "samples": [
+    {
+      "count": 1000,
+      "sample": 0,
+      "modelMs": 24.991540999999998,
+      "flattenMs": 6.848375000000004,
+      "editMs": 1.2558329999999955,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 1,
+      "modelMs": 5.230333000000002,
+      "flattenMs": 0.4056250000000148,
+      "editMs": 0.1263749999999959,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 2,
+      "modelMs": 5.65295900000001,
+      "flattenMs": 0.5245830000000069,
+      "editMs": 0.09866600000000858,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 3,
+      "modelMs": 4.3423329999999964,
+      "flattenMs": 1.2412910000000181,
+      "editMs": 0.21708300000000236,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 4,
+      "modelMs": 3.8294159999999806,
+      "flattenMs": 1.8392089999999826,
+      "editMs": 0.13683299999999576,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 0,
+      "modelMs": 95.29975000000002,
+      "flattenMs": 11.627374999999972,
+      "editMs": 0.37599999999997635,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 1,
+      "modelMs": 82.27133300000003,
+      "flattenMs": 7.07320900000002,
+      "editMs": 0.364832999999976,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 2,
+      "modelMs": 40.08858299999997,
+      "flattenMs": 5.905499999999961,
+      "editMs": 0.1479580000000169,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 3,
+      "modelMs": 58.493875,
+      "flattenMs": 2.2006250000000023,
+      "editMs": 0.16395799999997962,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 4,
+      "modelMs": 43.123333,
+      "flattenMs": 2.2857080000000565,
+      "editMs": 0.20020799999997507,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 0,
+      "modelMs": 713.073958,
+      "flattenMs": 101.18445900000006,
+      "editMs": 1.4645410000000538,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 1,
+      "modelMs": 1176.666208,
+      "flattenMs": 95.14449999999988,
+      "editMs": 1.5258340000000317,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 2,
+      "modelMs": 1136.991958,
+      "flattenMs": 97.87654199999997,
+      "editMs": 5.330792000000201,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 3,
+      "modelMs": 604.0305410000001,
+      "flattenMs": 61.857834000000366,
+      "editMs": 2.962333999999828,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 4,
+      "modelMs": 758.7667499999998,
+      "flattenMs": 68.43370799999957,
+      "editMs": 1.5101660000000265,
+      "ok": true
+    }
+  ]
+}

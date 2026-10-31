@@ -1,0 +1,11 @@
+{
+  "entryPoints": ["packages/core/src/index.ts"],
+  "out": "website/api/generated",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "disableSources": true,
+  "validation": { "notExported": false },
+  "skipErrorChecking": false
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "@edit-table/react@0.1.0",
+    "name": "@edit-table/react",
+    "version": "0.1.0",
+    "size": 2716,
+    "unpackedSize": 5181,
+    "shasum": "445ec1f593a7b870bb0745dcd7ee9b365d2d1e1f",
+    "integrity": "sha512-HzJuWxmct0GywQP80bcCKwXBJxUfJK4VTB/msLd15moAY7l0x2W4F99P6CbyRLH8OrhLmIXOhPNKLUgNDJEoGA==",
+    "filename": "edit-table-react-0.1.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 1456,
+        "mode": 420
+      },
+      {
+        "path": "dist/edit-table-react.js",
+        "size": 2104,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 1097,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 524,
+        "mode": 420
+      }
+    ],
+    "entryCount": 4,
+    "bundled": []
+  }
+]

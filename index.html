@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EditTable · 可编辑表格</title>
+  </head>
+  <body>
+    <main class="workspace">
+      <nav class="breadcrumb">
+        <a href="/">EDITTABLE</a><span>/</span><span>组件演示</span
+        ><a class="docs-link" href="http://127.0.0.1:5173/guide/getting-started">开发文档 ↗</a>
+      </nav>
+      <header class="page-header">
+        <div class="page-heading">
+          <span class="table-mark">▦</span>
+          <div>
+            <h1>活动费用明细表 <span class="editable-badge">可编辑</span></h1>
+            <p>多级行合并 · 分组小计 · 字段联动 · 固定对比行</p>
+          </div>
+        </div>
+        <div class="page-actions">
+          <button id="reset" class="secondary">↶ 恢复示例</button
+          ><button id="save" class="primary">保存 <kbd>⌘ S</kbd></button>
+        </div>
+      </header>
+      <section class="table-section">
+        <div class="section-top">
+          <div class="demo-tabs">
+            <button class="active" data-count="24">费用录入</button
+            ><button data-count="10000">1 万行</button><button data-count="100000">10 万行</button>
+          </div>
+          <span id="dataset-meta"></span>
+        </div>
+        <div id="table"></div>
+        <footer class="summary-bar">
+          <div>
+            <span class="summary-dot"></span><strong>合计</strong
+            ><span class="summary-note">由明细精确值汇总</span>
+          </div>
+          <div class="summary-items">
+            <span>含税金额 <strong id="total-gross"></strong></span
+            ><span>不含税金额 <strong id="total-net"></strong></span
+            ><span>税额 <strong id="total-tax"></strong></span>
+          </div>
+        </footer>
+      </section>
+      <footer class="page-footer">
+        <span
+          ><kbd>双击</kbd> 编辑单元格 <i></i><kbd>Shift</kbd> 扩展选择 <i></i
+          ><kbd>⌘ V</kbd> 批量粘贴 <i></i>右键查看更多操作</span
+        ><span>原生 TypeScript · 零框架依赖</span>
+      </footer>
+    </main>
+    <div id="status" role="status"></div>
+    <dialog id="submission">
+      <div class="dialog-heading">
+        <h2>提交数据</h2>
+        <button id="close-submission">关闭</button>
+      </div>
+      <p>真实记录、独立输入与汇总分别采集，派生展示行不会混入记录。</p>
+      <pre id="submission-code"></pre>
+    </dialog>
+    <script type="module" src="/examples/main.ts"></script>
+  </body>
+</html>

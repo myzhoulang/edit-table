@@ -1,0 +1,17 @@
+[
+  {
+    "browser": "chromium",
+    "fullscreen": true,
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "fullscreen": true,
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "fullscreen": true,
+    "errors": []
+  }
+]

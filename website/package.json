@@ -1,0 +1,8 @@
+{
+  "name": "edit-table-website",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "edit-table": "workspace:*"
+  }
+}

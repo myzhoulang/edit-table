@@ -1,0 +1,13 @@
+node_modules/
+**/dist/
+**/.vitepress/cache/
+**/.vitepress/.temp/
+playwright-report/
+test-results/
+.playwright-mcp/
+.env
+.env.*
+*.tgz
+.DS_Store
+website/api/generated/
+website/.snippets/

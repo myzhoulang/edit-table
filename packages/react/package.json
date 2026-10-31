@@ -1,0 +1,25 @@
+{
+  "name": "@edit-table/react",
+  "version": "0.1.0",
+  "description": "EditTable 的 React 薄适配",
+  "type": "module",
+  "main": "./dist/edit-table-react.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/edit-table-react.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "edit-table": "^0.1.0",
+    "react": ">=16.8.0 <20",
+    "react-dom": ">=16.8.0 <20"
+  },
+  "license": "MIT"
+}

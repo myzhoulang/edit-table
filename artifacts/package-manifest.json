@@ -1,0 +1,156 @@
+[
+  {
+    "id": "edit-table@0.1.0",
+    "name": "edit-table",
+    "version": "0.1.0",
+    "size": 56464,
+    "unpackedSize": 196319,
+    "shasum": "26d0ed23ffccbb85ecff36dcabae0aaf9a0f4b98",
+    "integrity": "sha512-DoP45+OJAUYXzfoiEDgwhyiW6rEl8dnIkdJ9Txm4qSaIZ7VmmyJ2OR0OlzSqSAlT11KqLtwx4CQbKErFSpR0eA==",
+    "filename": "edit-table-0.1.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 1140,
+        "mode": 420
+      },
+      {
+        "path": "dist/commands/events.d.ts",
+        "size": 409,
+        "mode": 420
+      },
+      {
+        "path": "dist/dom/editors.d.ts",
+        "size": 595,
+        "mode": 420
+      },
+      {
+        "path": "dist/dom/elements.d.ts",
+        "size": 295,
+        "mode": 420
+      },
+      {
+        "path": "dist/dom/interactions.d.ts",
+        "size": 798,
+        "mode": 420
+      },
+      {
+        "path": "dist/dom/renderer.d.ts",
+        "size": 1851,
+        "mode": 420
+      },
+      {
+        "path": "dist/dom/table.d.ts",
+        "size": 309,
+        "mode": 420
+      },
+      {
+        "path": "dist/dom/toolbar.d.ts",
+        "size": 394,
+        "mode": 420
+      },
+      {
+        "path": "dist/edit-table.js",
+        "size": 149138,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 287,
+        "mode": 420
+      },
+      {
+        "path": "dist/model/capabilities.d.ts",
+        "size": 556,
+        "mode": 420
+      },
+      {
+        "path": "dist/model/config.d.ts",
+        "size": 969,
+        "mode": 420
+      },
+      {
+        "path": "dist/model/grouping.d.ts",
+        "size": 543,
+        "mode": 420
+      },
+      {
+        "path": "dist/model/model.d.ts",
+        "size": 1425,
+        "mode": 420
+      },
+      {
+        "path": "dist/model/pipeline.d.ts",
+        "size": 1018,
+        "mode": 420
+      },
+      {
+        "path": "dist/model/splice.d.ts",
+        "size": 386,
+        "mode": 420
+      },
+      {
+        "path": "dist/model/validation.d.ts",
+        "size": 743,
+        "mode": 420
+      },
+      {
+        "path": "dist/style.css",
+        "size": 13376,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 15453,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/clipboard.d.ts",
+        "size": 589,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/date.d.ts",
+        "size": 335,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/epoch.d.ts",
+        "size": 226,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/immutable.d.ts",
+        "size": 1162,
+        "mode": 420
+      },
+      {
+        "path": "dist/view/columns.d.ts",
+        "size": 327,
+        "mode": 420
+      },
+      {
+        "path": "dist/view/metrics.d.ts",
+        "size": 708,
+        "mode": 420
+      },
+      {
+        "path": "dist/view/rows.d.ts",
+        "size": 916,
+        "mode": 420
+      },
+      {
+        "path": "dist/view/view.d.ts",
+        "size": 1973,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 398,
+        "mode": 420
+      }
+    ],
+    "entryCount": 28,
+    "bundled": []
+  }
+]

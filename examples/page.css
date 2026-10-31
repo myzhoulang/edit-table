@@ -1,0 +1,349 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+  color: #25324a;
+  background: #f5f7fb;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.workspace {
+  max-width: 2100px;
+  margin: auto;
+  padding: 0 30px 20px;
+}
+.breadcrumb {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #98a3b3;
+  font-size: 12px;
+}
+.breadcrumb a {
+  color: #52637c;
+  text-decoration: none;
+}
+.breadcrumb > a:first-child {
+  font-weight: 750;
+  letter-spacing: 1.8px;
+  color: #234278;
+}
+.breadcrumb .docs-link {
+  margin-left: auto;
+  color: #77869d;
+}
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 28px;
+  gap: 20px;
+}
+.page-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.table-mark {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d8e6fc;
+  background: #eaf2ff;
+  border-radius: 12px;
+  font-size: 25px;
+  color: #3278eb;
+}
+h1 {
+  font-size: 21px;
+  font-weight: 650;
+  letter-spacing: 0.1px;
+  margin: 0 0 7px;
+}
+.editable-badge {
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 8px;
+  vertical-align: middle;
+  border: 1px solid #cfe4d9;
+  background: #f0f9f4;
+  color: #41976d;
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+.page-heading p {
+  margin: 0;
+  color: #8b98ab;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+.page-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.page-actions button {
+  font: 12px inherit;
+  border-radius: 6px;
+  padding: 9px 15px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.secondary {
+  background: white;
+  border: 1px solid #dde4ee;
+  color: #63738b;
+}
+.primary {
+  background: #1677ff;
+  border: 1px solid #1677ff;
+  color: #fff;
+  box-shadow: 0 3px 7px #1677ff24;
+}
+.primary kbd {
+  margin-left: 12px;
+  color: #ffffffa6;
+  border: 0;
+  background: #ffffff14;
+}
+.table-section {
+  background: white;
+  border: 1px solid #e1e7f0;
+  border-radius: 9px;
+  box-shadow: 0 3px 12px #233c6010;
+  overflow: hidden;
+}
+.section-top {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid #e7ecf3;
+}
+.demo-tabs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+.demo-tabs button {
+  height: 100%;
+  position: relative;
+  border: 0;
+  background: none;
+  padding: 0 3px;
+  color: #8895a8;
+  font: 13px inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.demo-tabs .active {
+  font-weight: 600;
+  color: #1677ff;
+}
+.demo-tabs .active:after {
+  content: '';
+  height: 2px;
+  background: #1677ff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 2px;
+}
+#dataset-meta {
+  font-size: 11px;
+  color: #99a4b4;
+}
+#table {
+  height: calc(100vh - 309px);
+  min-height: 370px;
+  max-height: 950px;
+}
+.table-section .edit-table {
+  border: 0;
+  border-radius: 0;
+}
+.table-section .et-body-viewport {
+  border-radius: 0;
+}
+.summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 19px;
+  background: #eaf3ff;
+  border-top: 1px solid #d5e5fa;
+  font-size: 12px;
+  gap: 20px;
+}
+.summary-bar > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.summary-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #1677ff;
+}
+.summary-note {
+  font-size: 11px;
+  color: #91a4bc;
+  margin-left: 10px;
+}
+.summary-items {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.summary-items > span {
+  color: #7c91ad;
+  font-size: 11px;
+}
+.summary-items strong {
+  font-size: 15px;
+  color: #284368;
+  margin-left: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 2px 0;
+  color: #9aa5b5;
+  font-size: 11px;
+}
+.page-footer i {
+  height: 9px;
+  border-left: 1px solid #dce2ea;
+  display: inline-block;
+  margin: 0 11px;
+}
+kbd {
+  font-family: inherit;
+  font-size: 10px;
+  border: 1px solid #dee5ef;
+  border-radius: 3px;
+  padding: 1px 4px;
+  background: #fff;
+  color: #8c9bb0;
+}
+#status {
+  position: fixed;
+  left: 50%;
+  top: 25px;
+  transform: translate(-50%, -20px);
+  padding: 11px 22px;
+  border-radius: 7px;
+  color: #fff;
+  background: #253b5b;
+  box-shadow: 0 4px 16px #172b4d30;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  z-index: 1000;
+  font-size: 13px;
+}
+#status.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+dialog {
+  width: min(780px, 90vw);
+  border: 1px solid #dce4f0;
+  border-radius: 10px;
+  padding: 22px;
+  color: #25324a;
+}
+dialog::backdrop {
+  background: #13254355;
+}
+.dialog-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog-heading h2 {
+  font-size: 18px;
+  margin: 0;
+}
+.dialog-heading button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: #1677ff;
+}
+dialog p {
+  font-size: 12px;
+  color: #8b98ab;
+}
+dialog pre {
+  background: #f4f7fb;
+  border-radius: 7px;
+  padding: 15px;
+  font-size: 12px;
+  max-height: 65vh;
+  overflow: auto;
+}
+@media (max-width: 800px) {
+  .workspace {
+    padding: 0 12px 16px;
+  }
+  .breadcrumb {
+    height: 46px;
+  }
+  .page-header {
+    margin: 10px 0 20px;
+  }
+  .page-heading p {
+    display: none;
+  }
+  h1 {
+    font-size: 17px;
+  }
+  .table-mark {
+    display: none;
+  }
+  .editable-badge {
+    display: none;
+  }
+  .page-actions .secondary {
+    display: none;
+  }
+  #table {
+    height: calc(100vh - 280px);
+  }
+  #dataset-meta {
+    display: none;
+  }
+  .summary-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .summary-items {
+    gap: 12px;
+  }
+  .summary-items strong {
+    font-size: 12px;
+  }
+  .summary-note {
+    display: none;
+  }
+  .page-footer {
+    font-size: 10px;
+  }
+  .page-footer > span:last-child {
+    display: none;
+  }
+}

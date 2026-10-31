@@ -1,0 +1,53 @@
+{
+  "name": "edit-table-workspace",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "website",
+    "examples/quotation"
+  ],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && tsc -p packages/core/tsconfig.build.json && bun scripts/finalize-build.ts && bun run build:react",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:core": "vitest run packages/core/test/model packages/core/test/view",
+    "test:dom": "vitest run packages/core/test/dom",
+    "test:e2e": "playwright test",
+    "test:spike": "playwright test -c spikes/playwright.config.ts",
+    "lint": "oxlint --deny-warnings packages examples website/.vitepress e2e scripts && prettier --check packages examples website e2e scripts *.json *.ts .prettierrc.json index.html README.md DECISIONS.md IMPLEMENTATION.md .github",
+    "format": "prettier --write packages examples website e2e scripts *.json *.ts .prettierrc.json index.html README.md DECISIONS.md IMPLEMENTATION.md .github",
+    "docs:dev": "bun run docs:api && vitepress dev website --host 127.0.0.1",
+    "docs:api": "typedoc",
+    "docs:check-snippets": "bun scripts/check-snippets.ts",
+    "docs:build": "bun run typecheck && bun run docs:check-snippets && bun run build && bun run docs:api && vitepress build website",
+    "benchmark": "bun scripts/performance/model.ts",
+    "check:no-sticky": "bun scripts/check-no-sticky.ts",
+    "benchmark:browser": "bun scripts/performance/browser.ts",
+    "test:package": "tsc -p tsconfig.package-check.json --noEmit",
+    "benchmark:report": "bun scripts/performance/report.ts",
+    "build:react": "vite build --config vite.react.config.ts && tsc -p packages/react/tsconfig.build.json",
+    "test:visual": "playwright test -c playwright.visual.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "^29.0.0",
+    "oxlint": "1.90.0",
+    "prettier": "^3.6.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typedoc": "0.28.20",
+    "typedoc-plugin-markdown": "4.14.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.5",
+    "vitepress": "1.6.4",
+    "vitest": "5.0.5",
+    "vue": "^3.5.0",
+    "@edit-table/react": "workspace:*",
+    "edit-table": "workspace:*"
+  }
+}

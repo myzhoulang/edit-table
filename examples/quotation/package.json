@@ -1,0 +1,9 @@
+{
+  "name": "edit-table-quotation",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "edit-table": "workspace:*",
+    "bignumber.js": "^9.3.1"
+  }
+}

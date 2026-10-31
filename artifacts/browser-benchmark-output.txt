@@ -1,0 +1,2 @@
+$ bun scripts/performance/browser.ts
+浏览器性能采样已写入 artifacts/performance-browser.json

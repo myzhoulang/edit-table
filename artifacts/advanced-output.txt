@@ -1,0 +1,41 @@
+
+Running 30 tests using 3 workers
+
+(node:4950) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4949) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › e2e/advanced.spec.ts:12:1 › 密度与主题切换保留编辑草稿 (1.0s)
+  ✓   3 [webkit] › e2e/advanced.spec.ts:12:1 › 密度与主题切换保留编辑草稿 (1.2s)
+  ✓   4 [chromium] › e2e/advanced.spec.ts:28:1 › 派生输入完整管线、零值、一次撤销 (529ms)
+  ✓   5 [webkit] › e2e/advanced.spec.ts:28:1 › 派生输入完整管线、零值、一次撤销 (893ms)
+  ✓   6 [chromium] › e2e/advanced.spec.ts:56:1 › 异步候选晚到结果与旧错误不覆盖新搜索 (699ms)
+  ✓   8 [chromium] › e2e/advanced.spec.ts:97:1 › 手动合并预览、确认与拆分历史 (482ms)
+  ✓   7 [webkit] › e2e/advanced.spec.ts:56:1 › 异步候选晚到结果与旧错误不覆盖新搜索 (875ms)
+  ✓   1 [firefox] › e2e/advanced.spec.ts:12:1 › 密度与主题切换保留编辑草稿 (2.3s)
+  ✓   9 [chromium] › e2e/advanced.spec.ts:111:1 › 异步写入检查旧结果被外部换数丢弃 (587ms)
+  ✓  10 [webkit] › e2e/advanced.spec.ts:97:1 › 手动合并预览、确认与拆分历史 (771ms)
+  ✓  12 [chromium] › e2e/advanced.spec.ts:146:1 › 动态配置更新同步列设置、列宽与工具栏 (468ms)
+  ✓  11 [firefox] › e2e/advanced.spec.ts:28:1 › 派生输入完整管线、零值、一次撤销 (1.1s)
+  ✓  14 [chromium] › e2e/advanced.spec.ts:172:1 › Ctrl 方向键先到连续区块边缘，再跳过空白 (308ms)
+  ✓  13 [webkit] › e2e/advanced.spec.ts:111:1 › 异步写入检查旧结果被外部换数丢弃 (817ms)
+  ✓  16 [chromium] › e2e/advanced.spec.ts:199:1 › 自动行高测量与坐标导航 (290ms)
+  ✓  18 [chromium] › e2e/advanced.spec.ts:236:1 › 虚拟滚动复用单元格节点并清除旧内容 (479ms)
+  ✓  15 [firefox] › e2e/advanced.spec.ts:56:1 › 异步候选晚到结果与旧错误不覆盖新搜索 (997ms)
+  ✓  17 [webkit] › e2e/advanced.spec.ts:146:1 › 动态配置更新同步列设置、列宽与工具栏 (744ms)
+  ✓  19 [chromium] › e2e/advanced.spec.ts:252:1 › 连续滚动不移除仍在窗口内的行 (513ms)
+  ✓  21 [webkit] › e2e/advanced.spec.ts:172:1 › Ctrl 方向键先到连续区块边缘，再跳过空白 (488ms)
+  ✓  20 [firefox] › e2e/advanced.spec.ts:97:1 › 手动合并预览、确认与拆分历史 (747ms)
+  ✓  22 [webkit] › e2e/advanced.spec.ts:199:1 › 自动行高测量与坐标导航 (459ms)
+  ✓  23 [firefox] › e2e/advanced.spec.ts:111:1 › 异步写入检查旧结果被外部换数丢弃 (700ms)
+  ✓  24 [webkit] › e2e/advanced.spec.ts:236:1 › 虚拟滚动复用单元格节点并清除旧内容 (629ms)
+  ✓  25 [firefox] › e2e/advanced.spec.ts:146:1 › 动态配置更新同步列设置、列宽与工具栏 (592ms)
+  ✓  26 [webkit] › e2e/advanced.spec.ts:252:1 › 连续滚动不移除仍在窗口内的行 (645ms)
+  ✓  27 [firefox] › e2e/advanced.spec.ts:172:1 › Ctrl 方向键先到连续区块边缘，再跳过空白 (408ms)
+  ✓  28 [firefox] › e2e/advanced.spec.ts:199:1 › 自动行高测量与坐标导航 (427ms)
+  ✓  29 [firefox] › e2e/advanced.spec.ts:236:1 › 虚拟滚动复用单元格节点并清除旧内容 (516ms)
+  ✓  30 [firefox] › e2e/advanced.spec.ts:252:1 › 连续滚动不移除仍在窗口内的行 (878ms)
+
+  30 passed (10.5s)

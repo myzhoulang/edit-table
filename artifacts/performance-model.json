@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-31T08:30:39.911Z",
+  "environment": {
+    "runtime": "Bun 1.3.13",
+    "nodeCompatibility": "v24.3.0",
+    "platform": "darwin",
+    "release": "25.6.0",
+    "cpu": "Apple M1"
+  },
+  "samples": [
+    {
+      "count": 1000,
+      "sample": 0,
+      "modelMs": 3.7692080000000026,
+      "flattenMs": 1.3176249999999996,
+      "editMs": 0.850125000000002,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 1,
+      "modelMs": 1.3176249999999996,
+      "flattenMs": 0.18616600000000005,
+      "editMs": 0.07512499999999989,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 2,
+      "modelMs": 0.9605829999999997,
+      "flattenMs": 0.12320799999999821,
+      "editMs": 0.048500000000000654,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 3,
+      "modelMs": 0.973708000000002,
+      "flattenMs": 0.11341600000000085,
+      "editMs": 0.044583000000002926,
+      "ok": true
+    },
+    {
+      "count": 1000,
+      "sample": 4,
+      "modelMs": 1.1095000000000006,
+      "flattenMs": 0.137042000000001,
+      "editMs": 0.07795799999999886,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 0,
+      "modelMs": 10.552875,
+      "flattenMs": 0.9044999999999987,
+      "editMs": 0.1284169999999989,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 1,
+      "modelMs": 10.234375,
+      "flattenMs": 0.6722919999999988,
+      "editMs": 0.14300000000000068,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 2,
+      "modelMs": 6.930957999999997,
+      "flattenMs": 0.6263749999999959,
+      "editMs": 0.08420900000000131,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 3,
+      "modelMs": 10.579834000000005,
+      "flattenMs": 0.680624999999992,
+      "editMs": 0.0916249999999934,
+      "ok": true
+    },
+    {
+      "count": 10000,
+      "sample": 4,
+      "modelMs": 7.478833000000009,
+      "flattenMs": 0.6916250000000019,
+      "editMs": 0.08012500000000955,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 0,
+      "modelMs": 103.61237499999999,
+      "flattenMs": 6.110457999999994,
+      "editMs": 1.337541999999985,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 1,
+      "modelMs": 96.69633400000001,
+      "flattenMs": 3.9176669999999945,
+      "editMs": 1.2927499999999554,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 2,
+      "modelMs": 88.72233300000005,
+      "flattenMs": 3.421333000000004,
+      "editMs": 1.2309580000000437,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 3,
+      "modelMs": 81.426917,
+      "flattenMs": 11.528541000000018,
+      "editMs": 1.2956250000000296,
+      "ok": true
+    },
+    {
+      "count": 100000,
+      "sample": 4,
+      "modelMs": 96.90658399999995,
+      "flattenMs": 4.465291999999977,
+      "editMs": 1.3244170000000395,
+      "ok": true
+    }
+  ]
+}

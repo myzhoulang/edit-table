@@ -1,0 +1,818 @@
+.edit-table {
+  --edit-table-bg: #fff;
+  --edit-table-text: #25324a;
+  --edit-table-border: #e5eaf1;
+  --edit-table-header-bg: #f1f5f9;
+  --edit-table-header-text: #526075;
+  --edit-table-stripe-bg: #fafcff;
+  --edit-table-hover-bg: #f5f8ff;
+  --edit-table-selected-bg: #1677ff12;
+  --edit-table-active-color: #1677ff;
+  --edit-table-error-color: #e5484d;
+  --edit-table-derived-bg: #edf5ff;
+  --edit-table-pinned-bg: #f0f6ff;
+  --edit-table-pinned-border: #bfd7fa;
+  --edit-table-locked-bg: #f4f5f7;
+  --edit-table-row-height: 38px;
+  --edit-table-font-size: 13px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 180px;
+  border: 1px solid var(--edit-table-border);
+  border-radius: 8px;
+  background: var(--edit-table-bg);
+  color: var(--edit-table-text);
+  font:
+    var(--edit-table-font-size)/1.5 -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'PingFang SC',
+    sans-serif;
+  outline: none;
+  isolation: isolate;
+}
+.et-body-viewport {
+  outline: none;
+}
+.edit-table *,
+.et-popup-layer * {
+  box-sizing: border-box;
+}
+.edit-table button,
+.et-popup-layer button,
+.et-popup-layer input {
+  font: inherit;
+}
+.edit-table button,
+.et-popup-layer button {
+  cursor: pointer;
+}
+.edit-table button:disabled,
+.et-popup-layer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+.edit-table [hidden],
+.et-popup-layer [hidden] {
+  display: none !important;
+}
+.edit-table[data-theme='green'],
+.et-popup-layer[data-theme='green'] {
+  --edit-table-active-color: #15966b;
+  --edit-table-selected-bg: #15966b12;
+  --edit-table-derived-bg: #eef9f3;
+  --edit-table-header-bg: #edf5ef;
+  --edit-table-pinned-bg: #e0f3e8;
+  --edit-table-pinned-border: #b8d9c7;
+}
+.edit-table[data-theme='dark'],
+.et-popup-layer[data-theme='dark'] {
+  --edit-table-bg: #17202e;
+  --edit-table-text: #d6deeb;
+  --edit-table-border: #303b4e;
+  --edit-table-header-bg: #202c3e;
+  --edit-table-header-text: #b1bfd4;
+  --edit-table-stripe-bg: #1a2535;
+  --edit-table-hover-bg: #233249;
+  --edit-table-selected-bg: #549aff20;
+  --edit-table-derived-bg: #20334e;
+  --edit-table-pinned-bg: #1d2d44;
+  --edit-table-pinned-border: #3a5272;
+  --edit-table-locked-bg: #262d39;
+  --edit-table-error-color: #ff7875;
+}
+.et-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 5px 12px;
+  border-bottom: 1px solid var(--edit-table-border);
+  border-radius: 8px 8px 0 0;
+  background: var(--edit-table-bg);
+}
+.et-toolbar-divider {
+  height: 18px;
+  border-left: 1px solid var(--edit-table-border);
+  margin: 0 6px;
+}
+.et-toolbar-spacer {
+  flex: 1;
+}
+.et-toolbar-status {
+  font-size: 12px;
+  color: #8290a5;
+  padding-right: 8px;
+}
+.et-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: inherit;
+  font-size: 18px !important;
+  line-height: 1;
+}
+.et-icon-button:hover {
+  background: var(--edit-table-selected-bg, #eef5ff);
+  color: var(--edit-table-active-color, #1677ff);
+}
+.et-icon-button:focus-visible {
+  outline: 2px solid var(--edit-table-active-color, #1677ff);
+  outline-offset: 1px;
+}
+.et-icon-button svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.et-head-viewport {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  border-radius: 7px 7px 0 0;
+  background: var(--edit-table-header-bg);
+}
+.edit-table[data-row-selection-top='true'] .et-head-viewport::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--edit-table-active-color);
+  pointer-events: none;
+  z-index: 5;
+}
+.et-head-selection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
+  z-index: 6;
+}
+.et-head-selection-edge {
+  position: absolute;
+  height: 1px;
+  background: var(--edit-table-active-color);
+}
+.et-pinned-select-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+.et-toolbar:not([hidden]) + .et-head-viewport {
+  border-radius: 0;
+  /* 将工具栏下边线纳入表头裁剪区，保留表头与正文的原有位置。 */
+  margin-top: -1px;
+  padding-top: 1px;
+  background-clip: content-box;
+}
+.et-head-table,
+.et-body-table {
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 !important;
+  display: table !important;
+}
+.edit-table th,
+.edit-table td {
+  padding: 0;
+  border: 0;
+  border-right: 1px solid var(--edit-table-border);
+  border-bottom: 1px solid var(--edit-table-border);
+  height: var(--edit-table-row-height);
+  background: var(--edit-table-bg);
+  color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+.edit-table th {
+  height: 42px;
+  background: var(--edit-table-header-bg);
+  font-weight: 600;
+  color: var(--edit-table-header-text);
+  user-select: none;
+  cursor: default;
+}
+.et-header-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 12px;
+}
+.et-cell-content {
+  cursor: default;
+  height: 100%;
+  min-height: calc(var(--edit-table-row-height) - 1px);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  overflow: hidden;
+  white-space: inherit;
+  text-overflow: ellipsis;
+}
+.edit-table td[style*='text-align: right'] .et-cell-content {
+  justify-content: flex-end;
+}
+.edit-table td[style*='text-align: center'] .et-cell-content {
+  justify-content: center;
+}
+.et-body-shell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 0 0 7px 7px;
+}
+.et-body-viewport {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  position: relative;
+  background: var(--edit-table-bg);
+}
+.et-body-canvas {
+  position: relative;
+  min-height: 1px;
+  /* 限制横向溢出，避免表格内容成为原生横滚对象。 */
+  overflow: clip;
+}
+.et-horizontal-scroll {
+  flex: 0 0 12px;
+  height: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  background: var(--edit-table-bg);
+}
+.et-horizontal-content {
+  height: 1px;
+}
+.et-row-number {
+  position: relative;
+  padding: 0 3px !important;
+  text-align: center !important;
+  font-size: 12px;
+  color: #8290a5 !important;
+  user-select: none;
+  background: var(--edit-table-bg);
+}
+.et-row-pin-marker {
+  color: var(--edit-table-active-color);
+  margin-right: 3px;
+  font-size: 13px;
+}
+.et-body-table .et-row-number {
+  cursor: pointer;
+}
+.edit-table[data-striped='true'] tr[data-kind='record']:nth-child(even) > td {
+  background: var(--edit-table-stripe-bg);
+}
+.et-body-table tr:hover > td {
+  background: var(--edit-table-hover-bg);
+}
+.edit-table [data-fixed='left'] {
+  transform: translateX(var(--edit-table-fix-left, 0px));
+  z-index: 3;
+  background: var(--edit-table-bg);
+}
+.edit-table [data-fixed='right'] {
+  transform: translateX(var(--edit-table-fix-right, 0px));
+  z-index: 3;
+  background: var(--edit-table-bg);
+}
+.edit-table th[data-fixed] {
+  z-index: 4;
+  background: var(--edit-table-header-bg);
+}
+.edit-table[data-scroll-left='true'] [data-fixed='left'] {
+  box-shadow: 3px 0 4px -4px #0006;
+}
+.edit-table[data-scroll-right='true'] [data-fixed='right'] {
+  box-shadow: -3px 0 4px -4px #0006;
+}
+.edit-table .et-header-cell.et-column-selected {
+  z-index: 5;
+  background: var(--edit-table-active-color);
+  border-color: var(--edit-table-active-color);
+  color: #fff;
+  /* 覆盖左、上网格线及左上角，并与正文选框共享左右边界。 */
+  box-shadow:
+    -1px 0 0 var(--edit-table-active-color),
+    0 -1px 0 var(--edit-table-active-color),
+    -1px -1px 0 var(--edit-table-active-color);
+}
+.et-derived-row > td {
+  background: var(--edit-table-derived-bg) !important;
+  font-weight: 600;
+}
+.et-derived-input .et-cell-content {
+  box-shadow: inset 0 -2px 0 var(--edit-table-active-color);
+  margin: 4px 8px;
+  min-height: calc(var(--edit-table-row-height) - 9px);
+  padding: 0 4px;
+  font-weight: 500;
+}
+.et-derived-input:empty:after {
+  content: '输入金额';
+  color: #8290a5;
+}
+.et-locked-row > td {
+  background: var(--edit-table-locked-bg) !important;
+  color: #8390a0;
+}
+.et-invalid {
+  color: var(--edit-table-error-color) !important;
+}
+.et-validating {
+  box-shadow: inset 0 -2px var(--edit-table-primary, #1677ff);
+}
+.et-tooltip-error {
+  border-color: #ff4d4f;
+}
+.et-calendar-day.et-option-active {
+  outline: 2px solid var(--edit-table-primary, #1677ff);
+  outline-offset: -2px;
+}
+.et-invalid:after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border-top: 6px solid var(--edit-table-error-color);
+  border-left: 6px solid transparent;
+  pointer-events: none;
+}
+.et-active-row > .et-row-number {
+  box-shadow: inset 3px 0 var(--edit-table-active-color) !important;
+  color: var(--edit-table-active-color) !important;
+}
+.et-row-selected > .et-row-number {
+  background: var(--edit-table-active-color) !important;
+  border-color: var(--edit-table-active-color);
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.et-row-selected .et-row-pin-marker {
+  color: inherit;
+}
+.et-diff {
+  background: #fff1b8 !important;
+  color: #6b4c10 !important;
+}
+.et-spacer,
+.et-spacer > td {
+  height: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  line-height: 0;
+}
+.et-pinned td {
+  background: var(--edit-table-pinned-bg) !important;
+  font-size: 12px;
+}
+.et-pinned tr:last-child td {
+  border-bottom: 2px solid var(--edit-table-pinned-border);
+}
+.et-pin-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--edit-table-pinned-bg);
+}
+.et-pin-controls button {
+  border: 0;
+  background: transparent;
+  color: var(--edit-table-active-color);
+  padding: 2px 3px;
+  cursor: pointer;
+}
+.et-pinned-entry {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.et-pinned-manager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 6px 12px;
+  font-size: 12px;
+  background: var(--edit-table-pinned-bg);
+  border-bottom: 1px solid var(--edit-table-border);
+}
+.et-pinned-manager[hidden] {
+  display: none;
+}
+.et-pinned-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.et-pinned-choice input {
+  margin: 0;
+  accent-color: var(--edit-table-active-color);
+}
+.et-pinned-manager button {
+  border: 1px solid var(--edit-table-border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  color: var(--edit-table-active-color);
+  background: var(--edit-table-bg);
+  cursor: pointer;
+}
+.et-pinned-manager button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.et-merge-layer,
+.et-select-layer {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+.et-select-layer {
+  z-index: 5;
+}
+.et-layer-segment {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.et-merged-cell {
+  position: absolute;
+  border-right: 1px solid var(--edit-table-border);
+  border-bottom: 1px solid var(--edit-table-border);
+  background: var(--edit-table-bg);
+  overflow: hidden;
+}
+.et-merged-content {
+  cursor: default;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+.et-merge-placeholder {
+  border-bottom-color: transparent !important;
+}
+.et-selection,
+.et-active-cell {
+  position: absolute;
+  pointer-events: none;
+}
+.et-row-selection {
+  border-width: 2px;
+}
+.et-selection {
+  background: var(--edit-table-selected-bg);
+  border: 1px solid var(--edit-table-active-color);
+}
+.et-column-selection {
+  /* 表头的下边框作为整列上边界，正文从这里无缝衔接。 */
+  border-top: 0;
+}
+.et-pinned-column-selection {
+  /* 两侧边线穿过固定管理栏，与正文选框连续，管理操作不受覆盖层影响。 */
+  border-bottom: 0;
+}
+.et-active-cell {
+  border: 2px solid var(--edit-table-active-color);
+  border-radius: 2px;
+}
+.et-resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 7px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 6;
+}
+.et-resize-handle:hover {
+  background: var(--edit-table-active-color);
+  opacity: 0.35;
+}
+.et-resize-guide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--edit-table-active-color);
+  z-index: 30;
+  pointer-events: none;
+}
+.et-popup-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  color: var(--edit-table-text, #25324a);
+  font:
+    13px/1.5 -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'PingFang SC',
+    sans-serif;
+}
+.et-popup-layer > * {
+  pointer-events: auto;
+}
+.et-editor {
+  position: fixed;
+  z-index: 102;
+  background: var(--edit-table-bg, #fff);
+  border: 2px solid var(--edit-table-active-color, #1677ff);
+  border-radius: 4px;
+  pointer-events: auto;
+}
+.et-editor-input {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  outline: none;
+  padding: 0 10px;
+  background: var(--edit-table-bg, #fff);
+  color: var(--edit-table-text, #25324a);
+  border-radius: 3px;
+}
+.et-editor-dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: -2px;
+  min-width: 240px;
+  max-width: min(400px, 95vw);
+  overflow: auto;
+  background: var(--edit-table-bg, #fff);
+  border: 1px solid var(--edit-table-border, #e5eaf1);
+  border-radius: 6px;
+  padding: 5px;
+  box-shadow: 0 6px 24px #172b4d26;
+}
+.et-dropdown-above {
+  top: auto;
+  bottom: calc(100% + 5px);
+}
+.et-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+.et-option:hover,
+.et-option-active {
+  background: var(--edit-table-selected-bg, #eef5ff);
+}
+.et-option-selected {
+  background: var(--edit-table-derived-bg, #edf5ff);
+  color: var(--edit-table-active-color, #1677ff);
+  font-weight: 600;
+}
+.et-option-check {
+  padding-left: 18px;
+}
+.et-option-empty {
+  padding: 18px 12px;
+  color: #8290a5;
+  font-size: 12px;
+}
+.et-editor-done {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--edit-table-border, #e5eaf1);
+  padding: 8px;
+  color: var(--edit-table-active-color, #1677ff);
+  background: transparent;
+}
+.et-editor-error {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 8px));
+  border: 1px solid var(--edit-table-error-color, #e5484d);
+  border-radius: 4px;
+  background: var(--edit-table-bg, #fff);
+  padding: 5px 9px;
+  color: var(--edit-table-error-color, #e5484d);
+  font-size: 12px;
+  white-space: normal;
+  min-width: 140px;
+}
+.et-committing {
+  opacity: 0.65;
+}
+.et-number-control {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.et-number-control .et-editor-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 2px;
+  text-align: center;
+}
+.et-number-control button {
+  flex: 0 0 20px;
+  height: auto;
+  width: 20px;
+  max-width: 25%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #8290a5;
+  padding: 0;
+  line-height: 1;
+}
+.et-number-control button:focus-visible {
+  outline-offset: -2px;
+}
+.et-calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+.et-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  padding: 5px;
+  width: 258px;
+}
+.et-calendar-weekday {
+  text-align: center;
+  color: #8290a5;
+  font-size: 11px;
+  padding: 4px;
+}
+.et-calendar-day {
+  height: 29px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+}
+.et-calendar-day:hover {
+  background: var(--edit-table-selected-bg, #eef5ff);
+}
+.et-date-today {
+  box-shadow: inset 0 0 0 1px var(--edit-table-active-color, #1677ff);
+}
+.et-date-selected {
+  background: var(--edit-table-active-color, #1677ff) !important;
+  color: #fff;
+}
+.et-cascader-back {
+  border: 0;
+  background: transparent;
+  color: #8290a5;
+  padding: 7px;
+}
+.et-context-menu,
+.et-toolbar-menu,
+.et-merge-preview,
+.et-tooltip {
+  position: fixed;
+  min-width: 180px;
+  max-width: min(380px, 90vw);
+  padding: 5px;
+  border: 1px solid var(--edit-table-border, #e5eaf1);
+  border-radius: 6px;
+  background: var(--edit-table-bg, #fff);
+  color: var(--edit-table-text, #25324a);
+  box-shadow: 0 5px 22px #172b4d26;
+  z-index: 110;
+}
+.et-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  text-align: left;
+  color: inherit;
+}
+.et-menu-item:hover {
+  background: var(--edit-table-selected-bg, #eef5ff);
+}
+.et-menu-item.et-danger {
+  color: var(--edit-table-error-color, #e5484d);
+}
+.et-menu-divider {
+  border-top: 1px solid var(--edit-table-border, #e5eaf1);
+  margin: 4px;
+}
+.et-menu-checkbox {
+  display: flex;
+  gap: 8px;
+  padding: 6px 9px;
+}
+.et-data-state {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 86px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--edit-table-bg);
+  color: #8290a5;
+  z-index: 6;
+}
+.et-state-banner {
+  top: auto;
+  bottom: 8px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  border: 1px solid var(--edit-table-border);
+  border-radius: 5px;
+  box-shadow: 0 3px 12px #172b4d15;
+  white-space: nowrap;
+}
+.et-data-state button {
+  color: var(--edit-table-active-color);
+  background: transparent;
+  border: 0;
+}
+.et-tooltip {
+  min-width: 0;
+  max-width: 320px;
+  padding: 8px 12px;
+  font-size: 12px;
+  pointer-events: none;
+}
+.et-merge-preview {
+  padding: 16px;
+}
+.et-merge-preview p {
+  margin: 0 0 12px;
+}
+.et-merge-preview button {
+  margin-right: 8px;
+  padding: 5px 12px;
+}
+.edit-table:fullscreen {
+  height: 100vh !important;
+  width: 100vw;
+  border-radius: 0;
+  background: var(--edit-table-bg);
+}
+
+.edit-table[data-auto-height='true'] .et-body-table .et-cell-content {
+  display: block;
+  height: auto;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  padding: 8px 12px;
+}

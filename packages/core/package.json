@@ -1,0 +1,22 @@
+{
+  "name": "edit-table",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "原生 TypeScript 可编辑表格",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/edit-table.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "dependencies": {
+    "async-validator": "4.2.5"
+  }
+}
